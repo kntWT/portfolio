@@ -1,7 +1,7 @@
 import { CssBaseline } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
 import Router from "./Router";
-import Header from "./components/common/Header";
+import Header from "./components/common/header/Header";
 
 function App() {
   return (
