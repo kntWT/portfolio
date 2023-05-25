@@ -15,16 +15,16 @@ const pageNames = [
     "Works",
 ] as const;
 type PageName = typeof pageNames[number];
-type Page = {
-    readonly title: PageName;
+type Page = Readonly<{
+    title: PageName;
     path: string;
     icon: any;
     component: any;
-}
+}>;
 
 const toPath = (pageName: PageName): string => {
     return pageName === "Home" ? "/" : `/${pageName.toLowerCase()}`;
-}
+};
 const getIcon = (pageName: PageName) => {
     switch (pageName) {
         case "Home":
@@ -36,7 +36,7 @@ const getIcon = (pageName: PageName) => {
         case "Works":
             return CodeIcon;
     }
-}
+};
 const getComponent = (pageName: PageName) => {
     switch (pageName) {
         case "Home":
@@ -48,7 +48,7 @@ const getComponent = (pageName: PageName) => {
         case "Works":
             return Works;
     }
-}
+};
 
 const pages: Page[] = pageNames.map(pageName => ({
     title: pageName,
