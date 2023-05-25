@@ -6,7 +6,7 @@ const Router = () => {
     return (
         <Routes>
             {pages.map(page => (
-                <Route path={page.path} element={<page.component />} />
+                <Route key={page.title} path={page.path} element={<page.component />} />
             ))}
             <Route path='*' element={<NotFound />} />
         </Routes>
