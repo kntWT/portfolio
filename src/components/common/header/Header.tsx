@@ -8,18 +8,20 @@ import HeaderWithTab from "./HeaderWIthTab";
 import HeaderWithHamburger from "./HeaderWithHamburger";
 
 import pages from "../../../configs/pageConfig";
+import HeaderProp from "./props";
 
 const Header = () => {
     const location = useLocation();
     const [value, setValue] = useState<number>(pages.findIndex(page => page.path === location.pathname));
+    const props: HeaderProp = {value: value, setValue: setValue};
 
     return (
         <AppBar position="static">
                 <Box sx={{display: {sm: "block",xs: "none"}}}>
-                    <HeaderWithTab value={value} setValue={setValue} />
+                    <HeaderWithTab {...props} />
                 </Box>
                 <Box sx={{display: {sm: "none",xs: "block"}}}>
-                    <HeaderWithHamburger value={value} setValue={setValue} />
+                    <HeaderWithHamburger {...props} />
                 </Box>
         </ AppBar>
     );
