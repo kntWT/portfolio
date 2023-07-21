@@ -13,7 +13,7 @@ const TwitterLink = () => {
     const url = import.meta.env.VITE_TWITTER_URL;
     return <>
         <IconButton onClick={(e) => openLink(url)}>
-            <TwitterIcon />
+            <TwitterIcon sx={{color: "white"}} />
         </IconButton>
     </>
 }
@@ -22,7 +22,7 @@ const GitHubLink = () => {
     const url = import.meta.env.VITE_GITHUB_URL;
     return <>
         <IconButton onClick={(e) => openLink(url)}>
-            <GitHubIcon />
+            <GitHubIcon sx={{color: "white"}} />
         </IconButton>
     </>
 }
