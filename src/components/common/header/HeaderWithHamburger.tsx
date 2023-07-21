@@ -41,16 +41,14 @@ const HeaderWithHamburger = (props: HeaderProp) => {
     };
 
     return <>
-        <Toolbar sx={{justifyContent: "center"}}>
+        <Toolbar sx={{justifyContent: "space-between"}}>
             <IconButton
                 onClick={handleOpne}
                 sx={{float: "left"}}
             >
                 <MenuIcon />
             </IconButton>
-            <Box flexGrow={1} />
             <Typography>Kento Watanabe</Typography>
-            <Box flexGrow={1} />
             <LoginButton />
         </Toolbar>
 
@@ -68,6 +66,7 @@ const HeaderWithHamburger = (props: HeaderProp) => {
                 {pages.map((page, i) => (
                     <ListItem key={page.title}>
                         <ListItemButton
+                            selected={props.value === i}
                             onClick={(e: React.MouseEvent<HTMLElement>) => handleClick(i)}
                         >
                             <ListItemIcon>
