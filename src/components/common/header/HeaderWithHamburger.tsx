@@ -48,7 +48,11 @@ const HeaderWithHamburger = (props: HeaderProp) => {
             >
                 <MenuIcon />
             </IconButton>
-            <Typography>Kento Watanabe</Typography>
+            <Typography
+                onClick={() => handleClick(0)}
+            >
+                Kento Watanabe
+            </Typography>
             <LoginButton />
         </Toolbar>
 
