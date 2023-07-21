@@ -4,7 +4,7 @@ import {
     Typography,
     Box,
     Tabs,
-    Tab
+    Tab,
 } from "@mui/material";
 import pages from "../../../configs/pageConfig";
 
@@ -22,6 +22,8 @@ const HeaderWithTab = (props: HeaderProp) => {
     return <>
         <Toolbar>
             <Typography >Kento Watanabe</Typography>
+            <TwitterLink />
+            <GitHubLink />
             <Box sx={{flexGrow: 1}} />
             <Box>
                 <Tabs
