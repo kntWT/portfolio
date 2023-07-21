@@ -68,10 +68,10 @@ const HeaderWithHamburger = (props: HeaderProp) => {
 
             <List>
                 {pages.map((page, i) => (
-                    <ListItem key={page.title}>
+                    <ListItem key={page.title} sx={{paddingX: 0}}>
                         <ListItemButton
                             selected={props.value === i}
-                            onClick={(e: React.MouseEvent<HTMLElement>) => handleClick(i)}
+                            onClick={() => handleClick(i)}
                         >
                             <ListItemIcon>
                                 {<page.icon />}
