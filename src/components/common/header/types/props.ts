@@ -1,4 +1,3 @@
-import { SxProps, Theme } from '@mui/system';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import { SvgIconTypeMap } from '@mui/material';
 
