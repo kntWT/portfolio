@@ -11,19 +11,21 @@ import pages from "../../../configs/pageConfig";
 import LoginButton from "./LoginButton";
 import { TwitterLink, GitHubLink } from "./ExternalLink";
 
-import HeaderProp from "./props";
+import { HeaderProp } from "./types/props";
 
 const HeaderWithTab = (props: HeaderProp) => {
+    
     const navigate = useNavigate();
     const handleChange = (e: React.SyntheticEvent<Element, Event>, newValue: number) => {
         navigate(pages[newValue].path);
         props.setValue(newValue);
     }
+
     return <>
         <Toolbar>
-            <Typography >Kento Watanabe</Typography>
-            <TwitterLink />
-            <GitHubLink />
+            <Typography onClick={(e) => handleChange(e, 0)} >Kento Watanabe</Typography>
+            <TwitterLink {...{color: "white", ml: 1}} />
+            <GitHubLink {...{color: "white"}} />
             <Box sx={{flexGrow: 1}} />
             <Box>
                 <Tabs

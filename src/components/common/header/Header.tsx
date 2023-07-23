@@ -8,7 +8,7 @@ import HeaderWithTab from "./HeaderWIthTab";
 import HeaderWithHamburger from "./HeaderWithHamburger";
 
 import pages from "../../../configs/pageConfig";
-import HeaderProp from "./props";
+import { HeaderProp } from "./types/props";
 
 const Header = () => {
     const location = useLocation();

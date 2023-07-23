@@ -22,7 +22,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import LoginButton from "./LoginButton";
 import { TwitterLink, GitHubLink } from "./ExternalLink";
 
-import HeaderProp from "./props";
+import { HeaderProp } from "./types/props";
 
 const HeaderWithHamburger = (props: HeaderProp) => {
     const navigate = useNavigate();
@@ -68,7 +68,7 @@ const HeaderWithHamburger = (props: HeaderProp) => {
 
             <List>
                 {pages.map((page, i) => (
-                    <ListItem key={page.title} sx={{paddingX: 0}}>
+                    <ListItem key={page.title} sx={{px: 0}}>
                         <ListItemButton
                             selected={props.value === i}
                             onClick={() => handleClick(i)}

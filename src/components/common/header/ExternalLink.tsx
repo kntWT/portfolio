@@ -2,29 +2,42 @@ import {
     IconButton
 } from "@mui/material"
 
-import GitHubIcon from '@mui/icons-material/GitHub';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import { ExternalLinkProp, ExternalLinkSx } from "./types/props";
 
 const openLink = (url: string) => {
     window.open(url, "_blank")
 }
 
-const TwitterLink = () => {
-    const url = import.meta.env.VITE_TWITTER_URL;
+const ExternalLink = (props: ExternalLinkProp) => {
     return <>
-        <IconButton onClick={(e) => openLink(url)}>
-            <TwitterIcon sx={{color: "white"}} />
+        <IconButton onClick={(e) => openLink(props.url)} sx={{...props.sx}}>
+            <props.icon />
         </IconButton>
     </>
 }
 
-const GitHubLink = () => {
+const TwitterLink = (sx?: ExternalLinkSx) => {
+    const icon = TwitterIcon;
+    const url = import.meta.env.VITE_TWITTER_URL;
+    const props: ExternalLinkProp = {
+        icon: icon,
+        url: url,
+        sx: sx,
+    }
+    return <ExternalLink {...props} />
+}
+
+const GitHubLink = (sx?: ExternalLinkSx) => {
+    const icon = GitHubIcon;
     const url = import.meta.env.VITE_GITHUB_URL;
-    return <>
-        <IconButton onClick={(e) => openLink(url)}>
-            <GitHubIcon sx={{color: "white"}} />
-        </IconButton>
-    </>
+    const props: ExternalLinkProp = {
+        icon: icon,
+        url: url,
+        sx: sx,
+    }
+    return <ExternalLink {...props} />
 }
 
 export {
