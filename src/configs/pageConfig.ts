@@ -8,24 +8,28 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ArticleIcon from '@mui/icons-material/Article';
 import CodeIcon from '@mui/icons-material/Code';
 
+import { MuiIcon, CallableComponent } from '../@types/common';
+
 const pageNames = [
     "Home",
     "About",
     "Research",
     "Works",
 ] as const;
+
 type PageName = typeof pageNames[number];
+
 type Page = Readonly<{
     title: PageName;
     path: string;
-    icon: any;
-    component: any;
+    icon: MuiIcon;
+    component: CallableComponent;
 }>;
 
 const toPath = (pageName: PageName): string => {
     return pageName === "Home" ? "/" : `/${pageName.toLowerCase()}`;
 };
-const getIcon = (pageName: PageName) => {
+const getIcon = (pageName: PageName): MuiIcon => {
     switch (pageName) {
         case "Home":
             return HomeIcon;
@@ -37,7 +41,7 @@ const getIcon = (pageName: PageName) => {
             return CodeIcon;
     }
 };
-const getComponent = (pageName: PageName) => {
+const getComponent = (pageName: PageName): CallableComponent => {
     switch (pageName) {
         case "Home":
             return Home;
@@ -57,4 +61,7 @@ const pages: Page[] = pageNames.map(pageName => ({
     component: getComponent(pageName),
 } as const));
 
-export default pages;
+export {
+    pages,
+    type PageName,
+}

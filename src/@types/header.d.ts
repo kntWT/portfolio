@@ -1,5 +1,4 @@
-import { OverridableComponent } from '@mui/material/OverridableComponent';
-import { SvgIconTypeMap } from '@mui/material';
+import { MuiIcon } from "../../../../@types/common";
 
 export type HeaderProp = {
     value: number;
@@ -13,9 +12,7 @@ export type ExternalLinkSx = {
 };
 
 export type ExternalLinkProp = {
-    icon: OverridableComponent<SvgIconTypeMap<{}, "svg">> & {
-        muiName: string;
-    };
+    icon: MuiIcon;
     url: string;
     sx?: ExternalLinkSx;
 }

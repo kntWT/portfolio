@@ -14,7 +14,7 @@ import {
     ListItemText,
 } from "@mui/material";
 
-import pages from "../../../configs/pageConfig";
+import { pages } from "../../../configs/pageConfig";
 
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -22,7 +22,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import LoginButton from "./LoginButton";
 import { TwitterLink, GitHubLink } from "./ExternalLink";
 
-import { HeaderProp } from "./types/props";
+import { HeaderProp } from "../../../@types/header";
 
 const HeaderWithHamburger = (props: HeaderProp) => {
     const navigate = useNavigate();

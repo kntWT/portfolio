@@ -6,12 +6,12 @@ import {
     Tabs,
     Tab,
 } from "@mui/material";
-import pages from "../../../configs/pageConfig";
+import { pages } from "../../../configs/pageConfig";
 
 import LoginButton from "./LoginButton";
 import { TwitterLink, GitHubLink } from "./ExternalLink";
 
-import { HeaderProp } from "./types/props";
+import { HeaderProp } from "../../../@types/header";
 
 const HeaderWithTab = (props: HeaderProp) => {
     

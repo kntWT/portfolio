@@ -4,7 +4,7 @@ import {
 
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import { ExternalLinkProp, ExternalLinkSx } from "./types/props";
+import { ExternalLinkProp, ExternalLinkSx } from "../../../@types/header";
 
 const openLink = (url: string) => {
     window.open(url, "_blank")
