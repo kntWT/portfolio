@@ -11,16 +11,15 @@ import LockOpenIcon from '@mui/icons-material/LockOpen';
 
 import { useLoginStore } from "../../../store/Login";
 
-function LoginButton(): JSX.Element {
+const LoginButton = () => {
     const PASSWORD = import.meta.env.VITE_PASSWORD;
-    const isLoggedIn = useLoginStore(state => state.isLoggedIn);
-    const login = useLoginStore(state => state.login);
-    const logout = useLoginStore(state => state.logout);
+    const { isLoggedIn, login, logout } = useLoginStore();
 
     const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
     const isOpen = Boolean(anchorEl);
     const handleOpen = (e: MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(e.currentTarget);
+        setTimeout(() => document.getElementById("textfield")?.focus(), 100);
     };
     const handleClose = () => {
         setAnchorEl(null);
@@ -34,6 +33,7 @@ function LoginButton(): JSX.Element {
         if (password === PASSWORD) {
             login();
             setPassword("");
+            setTimeout(() => handleClose(), 100);
         }
     };
 
