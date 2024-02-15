@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import pages from "./configs/pageConfig";
+import { pages } from "./configs/pageConfig";
 import NotFound from './pages/NotFound';
 
 const Router = () => {
