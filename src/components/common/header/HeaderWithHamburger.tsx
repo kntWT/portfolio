@@ -14,7 +14,7 @@ import {
     ListItemText,
 } from "@mui/material";
 
-import { pages } from "../../../configs/pageConfig";
+import { pages } from "../../../configs/page";
 
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';

@@ -7,7 +7,7 @@ import {
 import HeaderWithTab from "./HeaderWIthTab";
 import HeaderWithHamburger from "./HeaderWithHamburger";
 
-import { pages } from "../../../configs/pageConfig";
+import { pages } from "../../../configs/page";
 import { HeaderProp } from "../../../@types/header";
 
 const Header = () => {

@@ -6,7 +6,7 @@ import {
     Tabs,
     Tab,
 } from "@mui/material";
-import { pages } from "../../../configs/pageConfig";
+import { pages } from "../../../configs/page";
 
 import LoginButton from "./LoginButton";
 import { TwitterLink, GitHubLink } from "./ExternalLink";
