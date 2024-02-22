@@ -1,6 +1,6 @@
 import Home from '../pages/Home';
 import About from '../pages/About';
-import Research from '../pages/Research';
+import Products from '../pages/Products';
 import Works from '../pages/Works';
 
 import HomeIcon from '@mui/icons-material/Home';
@@ -13,7 +13,7 @@ import { MuiIcon, CallableComponent } from '../@types/common';
 const pageNames = [
     "Home",
     "About",
-    "Research",
+    "Products",
     "Works",
 ] as const;
 
@@ -35,7 +35,7 @@ const getIcon = (pageName: PageName): MuiIcon => {
             return HomeIcon;
         case "About":
             return AccountCircleIcon;
-        case "Research":
+        case "Products":
             return ArticleIcon;
         case "Works":
             return CodeIcon;
@@ -47,8 +47,8 @@ const getComponent = (pageName: PageName): CallableComponent => {
             return Home;
         case "About":
             return About;
-        case "Research":
-            return Research;
+        case "Products":
+            return Products;
         case "Works":
             return Works;
     }
