@@ -36,9 +36,9 @@ const getIcon = (pageName: PageName): MuiIcon => {
         case "About":
             return AccountCircleIcon;
         case "Products":
-            return ArticleIcon;
-        case "Works":
             return CodeIcon;
+        case "Works":
+            return ArticleIcon;
     }
 };
 const getComponent = (pageName: PageName): CallableComponent => {
