@@ -2,7 +2,7 @@ import { Article, Service, DB } from "@/@types/common";
 type Product = Readonly<{}> & Article;
 
 const loadDB = async (): Promise<DB> => {
-    return await import("../../db.json");
+    return await import("../../db.json") as DB;
 }
 const loadProducts = async (): Promise<Product[]> => {
     return (await loadDB()).products;

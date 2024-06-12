@@ -7,13 +7,16 @@ type MuiIcon = OverridableComponent<SvgMuiIconMap<{}, "svg">> & {
 };
 type CallableComponent = () => EmotionJSX.Element;
 
+type LinkType = "url" | "github" | "blog" | "paper";
+
 type Article = {
     id?: number;
     title: string;
-    date: string;
-    url: string;
+    year: string;
+    links: { type: LinkType, url: string, text?: string }[];
     description: string;
     image: string;
+    stacks?: string[];
     tags: string[];
 };
 
@@ -34,6 +37,7 @@ type DB = {
 export {
     MuiIcon,
     CallableComponent,
+    LinkType,
     Article,
     Service,
     DB,
