@@ -5,7 +5,7 @@ import LinkIcon from '@mui/icons-material/Link';
 import LinkOffIcon from '@mui/icons-material/LinkOff';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import ArticleIcon from '@mui/icons-material/Article';
-import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 
 const ArticleCard = (props: {
@@ -28,7 +28,7 @@ const ArticleCard = (props: {
       case "blog":
         return <ArticleIcon />;
       case "paper":
-        return <PictureAsPdfIcon />;
+        return <LibraryBooksIcon />;
       default:
         return <LinkIcon />;
     }
