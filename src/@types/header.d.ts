@@ -1,4 +1,4 @@
-import { MuiIcon } from "../../../../@types/common";
+import { MuiIcon } from "@/@types/common";
 
 export type HeaderProp = {
     value: number;

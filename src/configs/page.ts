@@ -1,6 +1,6 @@
-import Home from '../pages/Home';
-import Products from '../pages/Products';
-import Works from '../pages/Works';
+import Home from '@/pages/Home';
+import Products from '@/pages/Products';
+import Works from '@/pages/Works';
 
 import HomeIcon from '@mui/icons-material/Home';
 import ArticleIcon from '@mui/icons-material/Article';
