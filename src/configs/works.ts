@@ -1,4 +1,4 @@
-import { Article, Service, DB } from "../@types/common";
+import { Article, Service, DB } from "@/@types/common";
 type Work = Readonly<{}> & Article;
 
 const loadDB = async (): Promise<DB> => {
@@ -28,7 +28,7 @@ const prodctService: Service = {
 
     getArticleById: async (id: number): Promise<Work | null> => {
         return new Promise((resolve, reject) => {
-             resolve(prodctService.contents.find((work) => work.id === id) ?? null);
+            resolve(prodctService.contents.find((work) => work.id === id) ?? null);
         });
     },
 

@@ -9,7 +9,7 @@ import {
 import LockIcon from "@mui/icons-material/Lock"
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 
-import { useLoginStore } from "../../../store/Login";
+import { useLoginStore } from "@/store/Login";
 
 const LoginButton = () => {
     const PASSWORD = import.meta.env.VITE_PASSWORD;

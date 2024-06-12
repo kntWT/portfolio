@@ -7,8 +7,8 @@ import {
 import HeaderWithTab from "./HeaderWIthTab";
 import HeaderWithHamburger from "./HeaderWithHamburger";
 
-import { pages } from "../../../configs/page";
-import { HeaderProp } from "../../../@types/header";
+import { pages } from "@/configs/page";
+import { HeaderProp } from "@/@types/header";
 
 const Header = () => {
     const location = useLocation();

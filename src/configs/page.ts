@@ -8,7 +8,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ArticleIcon from '@mui/icons-material/Article';
 import CodeIcon from '@mui/icons-material/Code';
 
-import { MuiIcon, CallableComponent } from '../@types/common';
+import { MuiIcon, CallableComponent } from '@/@types/common';
 
 const pageNames = [
     "Home",

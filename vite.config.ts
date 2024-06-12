@@ -6,4 +6,9 @@ export default defineConfig({
   plugins: [react({
     jsxImportSource: "@emotion/react",
   })],
+  resolve: {
+    alias: [
+      {find: "@/", replacement : "/src/"},
+    ],
+  },
 })
