@@ -16,11 +16,10 @@ const loadWorks = async (): Promise<Article[]> => {
         },
         mode: 'cors',
     })
-        .then((res) => {console.log(res); return res.json()})
+        .then((res) => res.json())
         .then((data) => data as FetchedWork[])
         .catch((err) => console.error(err))
     if (!data) return [];
-    console.log(data)
 
     return data.map((d: FetchedWork) => {
         const year = d.publication.publishedDate.match(/\d{4}/)?.[0] ?? "";
