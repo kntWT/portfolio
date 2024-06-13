@@ -42,6 +42,7 @@ const ArticleCard = (props: {
 
   return (
       <Card
+        elevation={3}
         sx={{
           margin: 2,
           padding: 3,
@@ -59,11 +60,13 @@ const ArticleCard = (props: {
         />
         <CardContent>
           <Typography variant='h6' sx={{ margin: 1, textAlign: "center" }}>{props.article.title}</Typography>
-          <Typography variant='subtitle1'>{props.article.year}年</Typography>
+          <Typography sx={{ textAlign: "center" }} variant='subtitle1'>{props.article.year}年</Typography>
+          <Box sx={{ margin: 2 }}>
+            {props.showDetail && <Typography variant='body1'>{props.article.description}</Typography>}
+          </Box>
           <Typography variant='body1'>
             {props.article.tags.map((tag, i) => <span style={tagStyle} key={`${i}`}>#{tag}</span>)}
           </Typography>
-          {props.showDetail && <Typography variant='body1'>{props.article.description}</Typography>}
         </CardContent>
         <CardActions>
           <Typography variant='subtitle2'>
@@ -113,7 +116,7 @@ const useArticleCards = (props: Article[]) => {
     <>
     <Grid container spacing={2} sx={{ paddingRight: 4}}>
       {props.map((article, i) => (
-        <Grid item key={`${i}`} xs={12} md={4} lg={3} onClick={() => handleOpen(article)}>
+        <Grid item key={`${i}`} xs={12} sm={6} md={4} lg={3} sx={{ aspectRatio: {xs: "1/1", md: "16/9"} }} onClick={() => handleOpen(article)}>
           <ArticleCard article={article} showDetail={false} />
         </Grid>
       ))}
