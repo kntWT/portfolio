@@ -34,7 +34,7 @@ const loadWorks = async (): Promise<Article[]> => {
             id: parseInt(d.core.id),
             title: d.core.title,
             year: year,
-            links: [...externalUrl, { type: "paper", url: d.core.externalUrl, text: "pdf" }],
+            links: [...externalUrl, { type: "url", url: `https://dl.nkmr-lab.org/papers/${d.core.id}`, text: "論文リポジトリ" }],
             description: d.core.abstract,
             image: d.core.thumbnail,
             tags: tags,

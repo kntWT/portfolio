@@ -20,7 +20,7 @@ const ArticleCard = (props: {
     fontSize: '0.8rem bold',
   };
 
-  const mainLink = props.article.links.find(link => link.type === 'url' || link.type === "paper");
+  const mainLink = props.article.links.find(link => link.type === 'url');
   const getLinkIcon = (linkType: LinkType): EmotionJSX.Element => {
     switch (linkType) {
       case "url":
