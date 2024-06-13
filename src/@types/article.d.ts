@@ -9,6 +9,7 @@ type Article = {
     image: string;
     stacks?: string[];
     tags: string[];
+    cite?: string;
 };
 
 type Service = {
@@ -51,7 +52,7 @@ type FetchedWork = {
         bookTitle: string;
         number: string;
         page: string;
-        publicationDate: string;
+        publishedDate: string;
         volume: string;
     };
 }

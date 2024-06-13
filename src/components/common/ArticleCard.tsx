@@ -20,7 +20,7 @@ const ArticleCard = (props: {
     fontSize: '0.8rem bold',
   };
 
-  const mainLink = props.article.links.find(link => link.type === 'url');
+  const mainLink = props.article.links.find(link => link.type === 'url' || link.type === "paper");
   const getLinkIcon = (linkType: LinkType): EmotionJSX.Element => {
     switch (linkType) {
       case "url":
@@ -38,6 +38,8 @@ const ArticleCard = (props: {
     }
   };
 
+  const imageSrc = props.article.image.startsWith('http') ? props.article.image : `/images/thumbnails/${props.article.image}`;
+
   return (
       <Card
         sx={{
@@ -50,7 +52,7 @@ const ArticleCard = (props: {
       >
         <CardMedia
           component="img"
-          src={`/images/thumbnails/${props.article.image}`}
+          src={imageSrc}
           height="60%"
           alt={props.article.title}
           sx={{ objectFit: props.showDetail ? 'contain' : 'cover'}}

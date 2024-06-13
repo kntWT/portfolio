@@ -1,47 +1,85 @@
-import { Article, Service, DB } from "@/@types/common";
-type Work = Readonly<{}> & Article;
+import { Article, Service, FetchedWork, DB } from "@/@types/article";
 
-const loadDB = async (): Promise<DB> => {
-    return await import("../../db.json") as DB;
-}
-const loadWorks = async (): Promise<Work[]> => {
-    return (await loadDB()).works;
-}
+// const loadDB = async (): Promise<DB> => {
+//     return await import("../../db.json") as DB;
+// }
 
-const prodctService: Service = {
+const loadWorks = async (): Promise<Article[]> => {
+    const param = import.meta.env.VITE_FETCH_WORKS_PARAMS.replace(/#/g, "$");
+    const url = `${import.meta.env.VITE_FETCH_WORKS_URL}?${param}`
+
+    const data = await fetch(url, {
+        method: 'GET',
+        headers: {
+            // 'Content-Type': 'application/json',
+            // "Access-Control-Allow-Origin": "*",
+        },
+        mode: 'cors',
+    })
+        .then((res) => {console.log(res); return res.json()})
+        .then((data) => data as FetchedWork[])
+        .catch((err) => console.error(err))
+    if (!data) return [];
+    console.log(data)
+
+    return data.map((d: FetchedWork) => {
+        const year = d.publication.publishedDate.match(/\d{4}/)?.[0] ?? "";
+        const externalUrl = Object.entries(d.embed).map(([key, value]) => ({
+            type: key === "youtube" ? "video" : "blog",
+            url: value,
+            text: key,
+        }));
+        const tags = [year, ...d.core.keywords,]
+        return {
+            id: parseInt(d.core.id),
+            title: d.core.title,
+            year: year,
+            links: [...externalUrl, { type: "paper", url: d.core.externalUrl, text: "pdf" }],
+            description: d.core.abstract,
+            image: d.core.thumbnail,
+            tags: tags,
+            cite: `${d.core.authors.join(", ")}.${d.core.title},${d.publication.bookTitle}, ${d.publication.volume}, ${d.publication.number}, oo.${d.publication.page}, ${d.publication.volume}, ${year}.`,
+        } as Article;
+    });
+}
+// const loadWorks = async (): Promise<Work[]> => {
+//     return (await loadDB()).works;
+// }
+
+const workService: Service = {
 
     contents: await loadWorks(),
 
     getNextId: () => {
-        return prodctService.contents.reduce((max, work) => Math.max(max, work?.id ?? 0), 0) + 1;
+        return workService.contents.reduce((max, work) => Math.max(max, work?.id ?? 0), 0) + 1;
     },
 
     reload: async () => {
-        prodctService.contents = await loadWorks();
+        workService.contents = await loadWorks();
     },
 
-    getArticles: async (): Promise<Work[]> => {
+    getArticles: async (): Promise<Article[]> => {
         return new Promise((resolve, reject) => {
-            resolve(prodctService.contents);
+            resolve(workService.contents);
         });
     },
 
-    getArticleById: async (id: number): Promise<Work | null> => {
+    getArticleById: async (id: number): Promise<Article | null> => {
         return new Promise((resolve, reject) => {
-            resolve(prodctService.contents.find((work) => work.id === id) ?? null);
+            resolve(workService.contents.find((work) => work.id === id) ?? null);
         });
     },
 
-    getArticlesByTag: async (tag: string): Promise<Work[]> => {
+    getArticlesByTag: async (tag: string): Promise<Article[]> => {
         return new Promise((resolve, reject) => {
-            resolve(prodctService.contents.filter((work) => work.tags.includes(tag)));
+            resolve(workService.contents.filter((work) => work.tags.includes(tag)));
         });
     },
 }
 
-const works: Work[] = await prodctService.getArticles();
+const works: Article[] = await workService.getArticles();
 
 export {
-    prodctService,
+    workService,
     works,
 }
