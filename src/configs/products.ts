@@ -1,4 +1,4 @@
-import { Article, Service, DB } from "@/@types/common";
+import { Article, Service, DB } from "@/@types/article";
 type Product = Readonly<{}> & Article;
 
 const loadDB = async (): Promise<DB> => {

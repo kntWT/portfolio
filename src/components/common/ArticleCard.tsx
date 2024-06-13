@@ -1,4 +1,5 @@
-import { Article, LinkType, MuiIcon } from '@/@types/common';
+import { MuiIcon } from '@/@types/common';
+import { Article, LinkType } from '@/@types/article';
 import { Box, Card, CardActions, CardContent, CardMedia, Grid, Link, Modal, Typography } from '@mui/material';
 import { useState } from 'react';
 import LinkIcon from '@mui/icons-material/Link';
