@@ -1,4 +1,4 @@
-type LinkType = "url" | "github" | "blog" | "paper";
+type LinkType = "url" | "github" | "blog" | "paper" | "video";
 
 type Article = {
     id?: number;
