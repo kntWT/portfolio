@@ -31,7 +31,7 @@ const HeaderWithTab = (props: HeaderProp) => {
                 <Tabs
                     value={props.value}
                     onChange={handleChange}
-                    textColor="secondary"
+                    textColor="inherit"
                     TabIndicatorProps={{
                         style: {
                             backgroundColor: "white",
