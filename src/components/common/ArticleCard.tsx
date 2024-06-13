@@ -1,4 +1,5 @@
-import { Article, LinkType, MuiIcon } from '@/@types/common';
+import { MuiIcon } from '@/@types/common';
+import { Article, LinkType } from '@/@types/article';
 import { Box, Card, CardActions, CardContent, CardMedia, Grid, Link, Modal, Typography } from '@mui/material';
 import { useState } from 'react';
 import LinkIcon from '@mui/icons-material/Link';
@@ -6,6 +7,7 @@ import LinkOffIcon from '@mui/icons-material/LinkOff';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import ArticleIcon from '@mui/icons-material/Article';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
 import { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 
 const ArticleCard = (props: {
@@ -18,7 +20,7 @@ const ArticleCard = (props: {
     fontSize: '0.8rem bold',
   };
 
-  const mainLink = props.article.links.find(link => link.type === 'url');
+  const mainLink = props.article.links.find(link => link.type === 'url' || link.type === "paper");
   const getLinkIcon = (linkType: LinkType): EmotionJSX.Element => {
     switch (linkType) {
       case "url":
@@ -29,13 +31,18 @@ const ArticleCard = (props: {
         return <ArticleIcon />;
       case "paper":
         return <LibraryBooksIcon />;
+      case "video":
+        return <OndemandVideoIcon />;
       default:
         return <LinkIcon />;
     }
   };
 
+  const imageSrc = props.article.image.startsWith('http') ? props.article.image : `/images/thumbnails/${props.article.image}`;
+
   return (
       <Card
+        elevation={3}
         sx={{
           margin: 2,
           padding: 3,
@@ -46,18 +53,20 @@ const ArticleCard = (props: {
       >
         <CardMedia
           component="img"
-          src={`/images/thumbnails/${props.article.image}`}
+          src={imageSrc}
           height="60%"
           alt={props.article.title}
           sx={{ objectFit: props.showDetail ? 'contain' : 'cover'}}
         />
         <CardContent>
           <Typography variant='h6' sx={{ margin: 1, textAlign: "center" }}>{props.article.title}</Typography>
-          <Typography variant='subtitle1'>{props.article.year}年</Typography>
+          <Typography sx={{ textAlign: "center" }} variant='subtitle1'>{props.article.year}年</Typography>
+          <Box sx={{ margin: 2 }}>
+            {props.showDetail && <Typography variant='body1'>{props.article.description}</Typography>}
+          </Box>
           <Typography variant='body1'>
             {props.article.tags.map((tag, i) => <span style={tagStyle} key={`${i}`}>#{tag}</span>)}
           </Typography>
-          {props.showDetail && <Typography variant='body1'>{props.article.description}</Typography>}
         </CardContent>
         <CardActions>
           <Typography variant='subtitle2'>
@@ -107,7 +116,7 @@ const useArticleCards = (props: Article[]) => {
     <>
     <Grid container spacing={2} sx={{ paddingRight: 4}}>
       {props.map((article, i) => (
-        <Grid item key={`${i}`} xs={12} md={4} lg={3} onClick={() => handleOpen(article)}>
+        <Grid item key={`${i}`} xs={12} sm={6} md={4} lg={3} sx={{ aspectRatio: {xs: "1/1", md: "16/9"} }} onClick={() => handleOpen(article)}>
           <ArticleCard article={article} showDetail={false} />
         </Grid>
       ))}

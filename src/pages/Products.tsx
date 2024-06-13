@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { productService } from '@/configs/products';
 import useArticleCards from '@/components/common/ArticleCard';
-import { Article } from '@/@types/common';
+import { Article } from '@/@types/article';
 
 
 const Products = () => {
