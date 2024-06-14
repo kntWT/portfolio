@@ -40,7 +40,7 @@ const Home = () => {
 
             <Grid container sx={{ padding: 4 }}>
                 <Grid item xs={12} sm={4}>
-                    <img src="/profile.JPG" style={{ margin: "20px auto", width: "100%", maxWidth: "700px", objectFit: "contain" }} />
+                    <img src="/images/profile.JPG" style={{ margin: "20px auto", width: "100%", maxWidth: "700px", objectFit: "contain" }} />
                 </Grid>
                 <Grid item xs={12} sm={8}>
                     <Box sx={{ padding: 3 }}>
