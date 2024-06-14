@@ -64,6 +64,12 @@ const ArticleCard = (props: {
           <Box sx={{ margin: 2 }}>
             {props.showDetail && <Typography variant='body1'>{props.article.description}</Typography>}
           </Box>
+          {props.showDetail && props.article.stacks && <Box sx={{ margin: 2 }}>
+            <Typography variant='subtitle2'>技術スタック</Typography>
+            <Typography variant='body2'>
+              {props.article.stacks.join(', ')}
+            </Typography>
+          </Box>}
           <Typography variant='body1'>
             {props.article.tags.map((tag, i) => <span style={tagStyle} key={`${i}`}>#{tag}</span>)}
           </Typography>
