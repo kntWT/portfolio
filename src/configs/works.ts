@@ -47,7 +47,7 @@ const loadWorks = async (): Promise<Article[]> => {
 
 const workService: Service = {
 
-    contents: await loadWorks(),
+    contents: [],
 
     getNextId: () => {
         return workService.contents.reduce((max, work) => Math.max(max, work?.id ?? 0), 0) + 1;
@@ -76,9 +76,6 @@ const workService: Service = {
     },
 }
 
-const works: Article[] = await workService.getArticles();
-
 export {
     workService,
-    works,
 }
