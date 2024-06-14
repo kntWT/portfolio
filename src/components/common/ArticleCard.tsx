@@ -45,7 +45,7 @@ const ArticleCard = (props: {
         elevation={3}
         sx={{
           margin: 2,
-          padding: 3,
+          padding: "24px 24px 0",
           width: '100%',
           height: '100%',
           overflow: 'scroll',
@@ -54,12 +54,12 @@ const ArticleCard = (props: {
         <CardMedia
           component="img"
           src={imageSrc}
-          height="60%"
+          height="50%"
           alt={props.article.title}
           sx={{ objectFit: 'contain' }}
         />
-        <CardContent>
-          <Typography variant='h6' sx={{ margin: 1, textAlign: "center" }}>{props.article.title}</Typography>
+        <CardContent sx={{ padding: 1 }}>
+          <Typography variant='h6' sx={{ marginTop: 1, textAlign: "center" }}>{props.article.title}</Typography>
           <Typography sx={{ textAlign: "center" }} variant='subtitle1'>{props.article.year}年</Typography>
           <Box sx={{ margin: 2 }}>
             {props.showDetail && <Typography variant='body1'>{props.article.description}</Typography>}
