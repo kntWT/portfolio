@@ -122,7 +122,7 @@ const useArticleCards = (props: Article[]) => {
     <>
     <Grid container spacing={2} sx={{ paddingRight: 4}}>
       {props.map((article, i) => (
-        <Grid item key={`${i}`} xs={12} sm={6} md={4} lg={3} sx={{ aspectRatio: {xs: "1/1", md: "16/9"} }} onClick={() => handleOpen(article)}>
+        <Grid item key={`${i}`} xs={12} sm={6} md={4} lg={3} sx={{ aspectRatio: {xs: "1/1", xl: "16/9"} }} onClick={() => handleOpen(article)}>
           <ArticleCard article={article} showDetail={false} />
         </Grid>
       ))}
