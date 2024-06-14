@@ -20,21 +20,21 @@ const ArticleCard = (props: {
     fontSize: '0.8rem bold',
   };
 
-  const mainLink = props.article.links.find(link => link.type === 'url');
+  const mainLink = props.article.links.find(link => link.type === 'url') ?? props.article.links?.[0];
   const getLinkIcon = (linkType: LinkType): EmotionJSX.Element => {
     switch (linkType) {
       case "url":
-        return <LinkIcon />;
+        return <LinkIcon sx={{ verticalAlign: "middle" }} />;
       case "github":
-        return <GitHubIcon />;
+        return <GitHubIcon sx={{ verticalAlign: "middle" }} />;
       case "blog":
-        return <ArticleIcon />;
+        return <ArticleIcon sx={{ verticalAlign: "middle" }} />;
       case "paper":
-        return <LibraryBooksIcon />;
+        return <LibraryBooksIcon sx={{ verticalAlign: "middle" }} />;
       case "video":
-        return <OndemandVideoIcon />;
+        return <OndemandVideoIcon sx={{ verticalAlign: "middle" }} />;
       default:
-        return <LinkIcon />;
+        return <LinkIcon sx={{ verticalAlign: "middle" }} />;
     }
   };
 
@@ -56,7 +56,7 @@ const ArticleCard = (props: {
           src={imageSrc}
           height="60%"
           alt={props.article.title}
-          sx={{ objectFit: props.showDetail ? 'contain' : 'cover'}}
+          sx={{ objectFit: 'contain' }}
         />
         <CardContent>
           <Typography variant='h6' sx={{ margin: 1, textAlign: "center" }}>{props.article.title}</Typography>
@@ -70,7 +70,7 @@ const ArticleCard = (props: {
         </CardContent>
         <CardActions>
           <Typography variant='subtitle2'>
-            {props.showDetail && props.article.links.length > 0 ?
+            {props.showDetail?
               props.article.links.map((link, i) =>
                 (<Box key={`${i}`}>
                   {getLinkIcon(link.type)}
@@ -78,13 +78,13 @@ const ArticleCard = (props: {
                     {link.text ?? link.url}
                   </Link>
               </Box>)):
-              (mainLink ?
+              (props.article.links.length > 0 ?
                 <>
-                  <LinkIcon sx={{ verticalAlign: "middle" }} />
+                  {getLinkIcon(mainLink.type)}
                   <Link href={mainLink.url} target='_blank' style={tagStyle}>{mainLink.text ?? mainLink.url}</Link>
                 </> : <>
                   <LinkOffIcon sx={{ verticalAlign: "middle" }} />
-                  <Typography>no external link</Typography>
+                  <Typography component="span">no external link</Typography>
                 </>
               )
             }
