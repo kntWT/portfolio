@@ -11,6 +11,7 @@ const Works = () => {
 
     useEffect(() => {
         const loadData = async() => {
+            await workService.reload();
             const ws = await workService.getArticles();
             setProducts(ws);
         }

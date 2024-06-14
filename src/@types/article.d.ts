@@ -15,7 +15,7 @@ type Article = {
 type Service = {
     contents: Article[];
     getNextId: () => number;
-    reload: () => void;
+    reload: () => Promise<void>;
     getArticles: () => Promise<Article[]>;
     getArticleById: (id: number) => Promise<Article | null>;
     getArticlesByTag: (tag: string) => Promise<Article[]>;

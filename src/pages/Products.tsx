@@ -10,6 +10,7 @@ const Products = () => {
 
     useEffect(() => {
         const loadData = async() => {
+            await productService.reload();
             const prod = await productService.getArticles();
             setProducts(prod);
         }
