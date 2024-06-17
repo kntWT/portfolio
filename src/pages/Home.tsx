@@ -20,7 +20,7 @@ const Home = () => {
         "git","github","vscode","linux","bash","nginx",
         "mysql","postgresql",
         "unity","cs",
-        "java","maven","spring","processing","arduino",
+        "java","maven","processing","arduino",
         "php","html","css","js","ts",
         "npm","pnpm","nodejs","jest","vite","react","nextjs","vue","nuxtjs","pinia","svelte","angular","p5js",
         "vuetify","materialui","sass",
