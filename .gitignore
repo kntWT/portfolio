@@ -23,5 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
+.serena
+
 db.json
 public/images
