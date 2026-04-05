@@ -1,4 +1,4 @@
-import { Card, CardMedia, Divider, Grid, ImageList, ImageListItem, Table, TableBody, TableCell, TableHead, TableRow, Typography } from "@mui/material";
+import { Divider, Grid, ImageList, ImageListItem, Table, TableBody, TableCell, TableHead, TableRow, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
 const Home = () => {

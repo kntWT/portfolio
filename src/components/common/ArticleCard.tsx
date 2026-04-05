@@ -1,4 +1,3 @@
-import { MuiIcon } from '@/@types/common';
 import { Article, LinkType } from '@/@types/article';
 import { Box, Card, CardActions, CardContent, CardMedia, Grid, Link, Modal, Typography } from '@mui/material';
 import { useState } from 'react';
@@ -8,7 +7,6 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import ArticleIcon from '@mui/icons-material/Article';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
-import { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 
 const ArticleCard = (props: {
   article: Article,
@@ -21,7 +19,7 @@ const ArticleCard = (props: {
   };
 
   const mainLink = props.article.links.find(link => link.type === 'url') ?? props.article.links?.[0];
-  const getLinkIcon = (linkType: LinkType): EmotionJSX.Element => {
+  const getLinkIcon = (linkType: LinkType) => {
     switch (linkType) {
       case "url":
         return <LinkIcon sx={{ verticalAlign: "middle" }} />;
