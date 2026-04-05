@@ -28,11 +28,21 @@ const career: { year: string; content: string }[] = [
     year: "2024/04",
     content: "明治大学大学院先端数理科学研究科先端メディアサイエンス専攻入学",
   },
+  {
+    year: "2026/03",
+    content:
+      "明治大学大学院先端数理科学研究科先端メディアサイエンス専攻卒業，修士（工学）取得",
+  },
+  {
+    year: "2026/04",
+    content: "LINEヤフー株式会社に入社",
+  },
 ];
 
 const skills = [
   "git",
   "github",
+  "githubactions",
   "vscode",
   "linux",
   "bash",
@@ -57,6 +67,8 @@ const skills = [
   "vite",
   "react",
   "nextjs",
+  "sequelize",
+  "prisma",
   "vue",
   "nuxtjs",
   "pinia",
@@ -76,6 +88,9 @@ const skills = [
   "go",
   "docker",
   "firebase",
+  "nestjs",
+  "express",
+  "latex",
 ];
 
 export { career, hobbies, profile, skills };
