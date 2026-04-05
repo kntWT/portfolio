@@ -1,4 +1,5 @@
 import { career, hobbies, profile, skills } from "@/configs/home";
+import { SKILL_ICONS_URL } from "@/configs/url";
 import {
   Divider,
   Grid,
@@ -81,10 +82,7 @@ const Home = () => {
         <ImageList cols={10}>
           {skills.map((skill, i) => (
             <ImageListItem key={i}>
-              <img
-                src={`https://skillicons.dev/icons?i=${skill}`}
-                alt={skill}
-              />
+              <img src={`${SKILL_ICONS_URL}?i=${skill}`} alt={skill} />
             </ImageListItem>
           ))}
         </ImageList>
