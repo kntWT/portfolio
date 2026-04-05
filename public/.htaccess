@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  # 実在するファイル・ディレクトリはそのまま配信
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  # それ以外（例: /works/foo でリロード）はドキュメントルートの index.html
+  RewriteRule ^ /index.html [L]
+</IfModule>
