@@ -48,7 +48,7 @@ const loadWorks = async (): Promise<Article[]> => {
     return parseArticle(d);
   });
   return [...articlesJa, ...articlesEn].sort((a, b) => {
-    return a.date.getTime() - b.date.getTime();
+    return a.date!.getTime() - b.date!.getTime();
   });
 };
 

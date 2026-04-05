@@ -4,7 +4,7 @@ type Article = {
   id?: number;
   title: string;
   year: string;
-  date: Date;
+  date?: Date;
   links: { type: LinkType; url: string; text?: string }[];
   description: string;
   image: string;
