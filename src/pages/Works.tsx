@@ -28,7 +28,7 @@ const Works = () => {
       <Typography variant="body1" sx={{ margin: 1 }} gutterBottom>
         <Link
           sx={linkStyle}
-          href={`${PAPER_REPOSITORY_URL}/?q=%E6%B8%A1%E9%82%89%20%E5%81%A5%E6%96%97`}
+          href={`${PAPER_REPOSITORY_URL}/?q=%E6%B8%A1%E9%82%89%20%E5%81%A5%E6%96%97&sort=asc`}
         >
           研究一覧
         </Link>
