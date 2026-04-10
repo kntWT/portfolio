@@ -1,5 +1,5 @@
 import { Article, FetchedWork, Service } from "@/@types/article";
-import { PAPER_REPOSITORY_URL } from "./url";
+import { PAPER_REPOSITORY_PAPERS_URL } from "./url";
 
 // const loadDB = async (): Promise<DB> => {
 //     return await import("../../db.json") as DB;
@@ -71,7 +71,7 @@ const parseArticle = (d: FetchedWork) => {
       ...externalUrl,
       {
         type: "url",
-        url: `${PAPER_REPOSITORY_URL}/${d.core.id}`,
+        url: `${PAPER_REPOSITORY_PAPERS_URL}/${d.core.id}`,
         text: "論文リポジトリ",
       },
     ],
