@@ -22,6 +22,11 @@ jobs:
       - name: 依存関係のインストール
         run: npm ci
 
+      - name: .env.local の作成
+        env:
+          DOTENV_LOCAL: ${{ secrets.DOTENV_LOCAL }}
+        run: echo "$DOTENV_LOCAL" > .env.local
+
       - name: コードフォーマットチェック (Prettier)
         run: npm run format:check
 
