@@ -1,0 +1,61 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  # 1. ビルドおよびテスト（検証）フェーズ
+  ci-test-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: リポジトリのチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Node.js のセットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: 依存関係のインストール
+        run: npm ci
+
+      - name: コードフォーマットチェック (Prettier)
+        run: npm run format:check
+
+      - name: 型チェック (TypeScript)
+        run: npx tsc --noEmit
+
+      - name: 本番用ビルドの実行
+        run: npm run build
+
+      - name: ビルド成果物のアップロード
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-assets
+          path: dist/
+          retention-days: 1
+
+  # 2. デプロイフェーズ
+  deploy:
+    needs: ci-test-build
+    runs-on: ubuntu-latest
+    steps:
+      - name: ビルド成果物のダウンロード
+        uses: actions/download-artifact@v4
+        with:
+          name: build-assets
+          path: dist/
+
+      - name: SSH による特定のサーバーへのデプロイ
+        uses: easingthemes/ssh-deploy@v5.1.0
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+          REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
+          REMOTE_USER: ${{ secrets.DEPLOY_USER }}
+          REMOTE_PORT: ${{ secrets.DEPLOY_PORT || '22' }}
+          ARGS: "-rlgoDzvc"
+          SOURCE: "dist/"
+          TARGET: ${{ secrets.DEPLOY_TARGET }}
