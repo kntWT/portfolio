@@ -19,7 +19,12 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 
-const ArticleCard = (props: { article: Article; showDetail?: boolean }) => {
+const ArticleCard = (props: {
+  article: Article;
+  showDetail?: boolean;
+  onTagClick?: (tag: string) => void;
+  onStackClick?: (stack: string) => void;
+}) => {
   const tagStyle = {
     marginRight: "0.4rem",
     marginBottom: "0.4rem",
@@ -108,16 +113,6 @@ const ArticleCard = (props: { article: Article; showDetail?: boolean }) => {
         >
           {props.article.title}
         </Typography>
-        <Typography
-          variant="subtitle2"
-          sx={{
-            color: "text.secondary",
-            fontWeight: 500,
-            mb: 2,
-          }}
-        >
-          {props.article.year}年
-        </Typography>
 
         {props.showDetail && (
           <Typography
@@ -153,7 +148,24 @@ const ArticleCard = (props: { article: Article; showDetail?: boolean }) => {
                   label={stack}
                   size="small"
                   variant="outlined"
-                  sx={{ borderRadius: "6px" }}
+                  onClick={
+                    props.onStackClick
+                      ? (e) => {
+                          e.stopPropagation();
+                          props.onStackClick!(stack);
+                        }
+                      : undefined
+                  }
+                  sx={{
+                    borderRadius: "6px",
+                    cursor: props.onStackClick ? "pointer" : "default",
+                    "&:hover": props.onStackClick
+                      ? {
+                          backgroundColor: "rgba(25, 118, 210, 0.08)",
+                          borderColor: "primary.main",
+                        }
+                      : {},
+                  }}
                 />
               ))}
             </Box>
@@ -166,13 +178,27 @@ const ArticleCard = (props: { article: Article; showDetail?: boolean }) => {
               key={i}
               label={`#${tag}`}
               size="small"
+              onClick={
+                props.onTagClick
+                  ? (e) => {
+                      e.stopPropagation(); // 親のカードクリックイベント（モーダルオープン）を防止
+                      props.onTagClick!(tag);
+                    }
+                  : undefined
+              }
               sx={{
                 backgroundColor: "rgba(25, 118, 210, 0.05)",
                 color: "secondary.main",
                 fontWeight: 600,
                 fontSize: "0.75rem",
                 borderRadius: "6px",
+                cursor: props.onTagClick ? "pointer" : "default",
                 "& .MuiChip-label": { px: 1 },
+                "&:hover": props.onTagClick
+                  ? {
+                      backgroundColor: "rgba(25, 118, 210, 0.12)",
+                    }
+                  : {},
               }}
             />
           ))}
@@ -247,7 +273,13 @@ const ArticleCard = (props: { article: Article; showDetail?: boolean }) => {
   );
 };
 
-const useArticleCards = (props: Article[]) => {
+const useArticleCards = (
+  props: Article[],
+  options?: {
+    onTagClick?: (tag: string) => void;
+    onStackClick?: (stack: string) => void;
+  },
+) => {
   const [open, setOpen] = useState(false);
   const [activeArticle, setActiveArticle] = useState<Article | null>(null);
 
@@ -289,7 +321,12 @@ const useArticleCards = (props: Article[]) => {
             }}
             onClick={() => handleOpen(article)}
           >
-            <ArticleCard article={article} showDetail={false} />
+            <ArticleCard
+              article={article}
+              showDetail={false}
+              onTagClick={options?.onTagClick}
+              onStackClick={options?.onStackClick}
+            />
           </Grid>
         ))}
       </Grid>
@@ -321,7 +358,18 @@ const useArticleCards = (props: Article[]) => {
           }}
         >
           {activeArticle && (
-            <ArticleCard article={activeArticle} showDetail={true} />
+            <ArticleCard
+              article={activeArticle}
+              showDetail={true}
+              onTagClick={(tag) => {
+                handleClose();
+                options?.onTagClick?.(tag);
+              }}
+              onStackClick={(stack) => {
+                handleClose();
+                options?.onStackClick?.(stack);
+              }}
+            />
           )}
         </Box>
       </Modal>
