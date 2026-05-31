@@ -1,0 +1,247 @@
+{
+  "works": [],
+  "products": [
+    {
+      "id": 1,
+      "title": "旧ポートフォリオ",
+      "year": "2021",
+      "links": [
+        {
+          "type": "url",
+          "url": "https://kento.nkmr.io/mypage"
+        }
+      ],
+      "description": "学部2年次に作成したポートフォリオになります．学部2年生までに制作したものなどはこちらに載せていますので ，よければご覧ください．",
+      "image": "old_portfolio.png",
+      "stacks": ["PHP", "p5.js"],
+      "tags": ["B2", "2021"]
+    },
+    {
+      "id": 2,
+      "title": "ドライビングシミュレータ",
+      "year": "2022",
+      "links": [
+        {
+          "type": "paper",
+          "url": "https://dl.nkmr-lab.org/papers/214",
+          "text": "論文"
+        }
+      ],
+      "description": "学部3年次にドライビングシミュレータシステムです 。統制された環境で繰り返し設定したコードを走行することができるシステムです。主にVRを用いた運転に関する研究の際に利用しました。私は主に，バグ修正，車両挙動の改良，その他機能追加などを担当しました．",
+      "image": "driving_simulator.png",
+      "stacks": ["Unity", "C#"],
+      "tags": ["B3", "2022", "研究"]
+    },
+    {
+      "id": 3,
+      "title": "メロ字ィ",
+      "year": "2022",
+      "links": [
+        {
+          "type": "url",
+          "url": "https://melogy.net",
+          "text": "システム"
+        },
+        {
+          "type": "blog",
+          "url": "https://dl.nkmr-lab.org/?q=%E3%83%A1%E3%83%AD%E5%AD%97%E3%82%A3",
+          "text": "研究一覧"
+        }
+      ],
+      "description": "学部3年から開発している、手書き文字練習システムです ．ハッカソンでの成果物を成り立ちに、繰り返しの文字練習の退屈さに着目し、手書き軌跡に応じて音を鳴らすことで文字練習を楽しく効果的にすることを目的として研究・開発しています。",
+      "image": "melogy.png",
+      "stacks": ["Nuxt.js", "Go", "MySQL", "Docker"],
+      "tags": ["B3", "2022", "研究", "ハッカソン"]
+    },
+    {
+      "id": 4,
+      "title": "上を向いてタップしよう",
+      "year": "2022",
+      "links": [
+        {
+          "type": "blog",
+          "url": "https://nkmr-lab.org/news/smartphone10_tap.html",
+          "text": "ブログ"
+        }
+      ],
+      "description": "B3の研究室内ハッカソンで制作したもので，スマートフォン利用時の姿勢に着目し，姿勢が良ければ良いほどスコアが上がり，姿勢が悪いとスコアが上がらないようなゲームを開発しました．第10回学生スマートフォンアプリコンテストに応募し，優秀賞をいただきました．",
+      "image": "tap_to_top.png",
+      "stacks": ["Nuxt.js", "Go", "MySQL", "Docker"],
+      "tags": ["B3", "2022", "ハッカソン"]
+    },
+    {
+      "id": 5,
+      "title": "typing.run",
+      "year": "2022",
+      "links": [
+        {
+          "type": "url",
+          "url": "https://typing.run/guest"
+        },
+        {
+          "type": "paper",
+          "url": "https://dl.nkmr-lab.org/papers/276",
+          "text": "論文"
+        }
+      ],
+      "description": "コロナ禍のプログラミング演習のために作られた，タイピングゲームの要領でプログラムを写経しつつ，結果が逐次実行されることでプログラムの理解を深めるためのシステムです．学部3年次から保守・運用を担当しており，機能追加や高校生向けのschool for typing.runなどもリリースしています．",
+      "image": "typing.run.png",
+      "stacks": ["React", "ExpressJS", "MySQL", "Docker"],
+      "tags": ["B3", "2022", "研究"]
+    },
+    {
+      "id": 6,
+      "title": "Posture Collection",
+      "year": "2023",
+      "links": [
+        {
+          "type": "paper",
+          "url": "https://dl.nkmr-lab.org/papers/493",
+          "text": "論文"
+        },
+        {
+          "type": "github",
+          "url": "https://github.com/kntWT/posture-collection"
+        }
+      ],
+      "description": "学部4年次に開発した，スマートフォン利用時の姿勢矯正のためのデータ収集システムです．スマートフォンの内カメラとセンサを用いてユーザの姿勢を推定可能とするため，ユーザのデータを収集するものです，最終的にはユーザにフィードバックを与えることで姿勢改善を促すことを目的としています．",
+      "image": "posture_collection.webp",
+      "stacks": [
+        "Angular",
+        "FastAPI",
+        "MySQL",
+        "OpenCV",
+        "Scikit Learn",
+        "Docker"
+      ],
+      "tags": ["B4", "2023", "研究"]
+    },
+    {
+      "id": 7,
+      "title": "ツメカラグラム",
+      "year": "2024",
+      "links": [
+        {
+          "type": "paper",
+          "url": "https://dl.nkmr-lab.org/papers/517",
+          "text": "国際会議"
+        },
+        {
+          "type": "paper",
+          "url": "https://dl.nkmr-lab.org/papers/442",
+          "text": "国内会議"
+        }
+      ],
+      "description": "料理における計量の手間を軽減するため，ユーザの爪色から把持しているものの重さを推定する研究をシステム化したものです．スマートフォンのカメラを用いてユーザの爪を撮影し，あらかじめ学習しておいたモデルを用いてものの重さを推定します．",
+      "image": "tsume_color_gram.png",
+      "stacks": ["Vue.js", "FastAPI", "Scikit Learn", "MySQL", "Docker"],
+      "tags": ["M1", "2024", "研究"]
+    },
+    {
+      "id": 8,
+      "title": "Posture Annotation",
+      "year": "2024",
+      "links": [
+        {
+          "type": "github",
+          "url": "https://github.com/kntWT/posture-annotation"
+        }
+      ],
+      "description": "博士前期課程1年次に開発した，姿勢データのアノテーション支援システムです．Posture Collectionで収集した正解データのノイズを除去し，正確なデータセットを作成するためのシステムです．",
+      "image": "posture_annotation.png",
+      "stacks": ["SvelteKit", "SpringBoot", "PostgresQL", "OpenAPI", "Docker"],
+      "tags": ["M1", "2024", "研究"]
+    },
+    {
+      "id": 9,
+      "title": "Make-up FLOW 2.0",
+      "year": 2025,
+      "links": [
+        {
+          "type": "paper",
+          "url": "https://dl.nkmr-lab.org/papers/516",
+          "text": "論文誌"
+        },
+        {
+          "type": "url",
+          "url": "https://makeup-flow.com",
+          "text": "システム"
+        }
+      ],
+      "description": "先輩が開発した化粧を工学的に扱うためのシステムを引き継ぎ，改善や保守・運用を行なったものです．化粧工程をフローチャートデータとして入力し，他者との共有や取り入れをしやすくするシステムです．",
+      "image": "makeup_flow.png",
+      "stacks": ["React", "ExpressJS", "MySQL", "Nginx", "Docker"],
+      "tags": ["M2", "2025", "研究"]
+    },
+    {
+      "id": 10,
+      "title": "姿勢推定API",
+      "year": 2025,
+      "links": [
+        {
+          "type": "github",
+          "url": "https://github.com/nkmr-lab/neck-pose-estimator",
+          "text": "GitHub"
+        },
+        {
+          "type": "paper",
+          "url": "https://dl.nkmr-lab.org/papers/633",
+          "text": "国内会議"
+        }
+      ],
+      "description": "過去の研究成果をもとに開発した，スマートフォン利用時の姿勢推定のためのAPIです．オープンソースとなっているので，推論サーバがあればどなたでも利用できます．（ライセンスはリポジトリをご参照ください）",
+      "image": "posture_estimation_api.jpeg",
+      "stacks": [
+        "FastAPI",
+        "OpenCV",
+        "Scikit Learn",
+        "Docker",
+        "pnpm",
+        "TypeScript",
+        "OpenAPI"
+      ],
+      "tags": ["M2", "2025", "研究"]
+    },
+    {
+      "id": 11,
+      "title": "姿勢推定API利用申請システム",
+      "year": 2025,
+      "links": [
+        {
+          "type": "github",
+          "url": "https://github.com/kntWT/posture-correction-app-request",
+          "text": "GitHub"
+        }
+      ],
+      "description": "姿勢推定APIを利用するための申請システムです．取得した姿勢データを利用しやすくするため，利用するアプリケーションごとにAppIDを発行するためのシステムです．",
+      "image": "posture_estimation_api_request.png",
+      "stacks": ["NextJS", "Nginx", "Tailscale", "Docker"],
+      "tags": ["M2", "2025", "研究"]
+    },
+    {
+      "id": 12,
+      "title": "OneCamLiveFX",
+      "year": 2026,
+      "links": [
+        {
+          "type": "paper",
+          "url": "https://dl.nkmr-lab.org/papers/656",
+          "text": "国内会議"
+        }
+      ],
+      "description": "同期と共同で開発したライブ映像へのリアルタイム映像効果付与システムです．リソースが限られている音楽団体のライブ配信をスマートフォン1台の固定視点映像のみで楽曲やシーンに合わせた映像効果を付与することができます．",
+      "image": "one_cam_live_fx.png",
+      "stacks": [
+        "Python",
+        "FastAPI",
+        "RTMP",
+        "WebSocket",
+        "React",
+        "ExpressJS",
+        "Docker",
+        "Tailscale"
+      ],
+      "tags": ["M2", "2026", "研究"]
+    }
+  ]
+}

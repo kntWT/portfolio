@@ -24,6 +24,3 @@ dist-ssr
 *.sw?
 
 .serena
-
-db.json
-public/images
