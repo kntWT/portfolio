@@ -20,7 +20,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
 
 import { GitHubLink, LinkedInLink } from "./ExternalLink";
-import LoginButton from "./LoginButton";
 
 import { HeaderProp } from "@/@types/header";
 
@@ -58,7 +57,7 @@ const HeaderWithHamburger = (props: HeaderProp) => {
         >
           Kento Watanabe
         </Typography>
-        <LoginButton />
+        {/* <LoginButton /> */}
       </Toolbar>
 
       <Drawer

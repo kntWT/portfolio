@@ -3,7 +3,6 @@ import { Box, Tab, Tabs, Toolbar, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import { GitHubLink, LinkedInLink } from "./ExternalLink";
-import LoginButton from "./LoginButton";
 
 import { HeaderProp } from "@/@types/header";
 
@@ -73,9 +72,9 @@ const HeaderWithTab = (props: HeaderProp) => {
               />
             ))}
           </Tabs>
-          <Box sx={{ ml: 2 }}>
+          {/* <Box sx={{ ml: 2 }}>
             <LoginButton />
-          </Box>
+          </Box> */}
         </Box>
       </Toolbar>
     </>
