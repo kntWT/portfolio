@@ -178,7 +178,11 @@ const SearchFilterUI = ({
                   return (
                     <Chip
                       key={tag}
-                      label={shouldFilterByGrade ? `#${tag}` : `#${tag}年`}
+                      label={
+                        shouldFilterByGrade
+                          ? `#${tag}`
+                          : `#${tag.replace(/年$/, "")}年`
+                      }
                       onClick={() => onTagToggle(tag)}
                       color={isSelected ? "secondary" : "default"}
                       variant={isSelected ? "filled" : "outlined"}
