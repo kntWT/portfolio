@@ -19,40 +19,63 @@ const HeaderWithTab = (props: HeaderProp) => {
 
   return (
     <>
-      <Toolbar>
-        <Typography onClick={(e) => handleChange(e, 0)}>
-          Kento Watanabe
-        </Typography>
-        <LinkedInLink {...{ color: "white", ml: 1 }} />
-        <GitHubLink {...{ color: "white" }} />
-        <Box sx={{ flexGrow: 1 }} />
-        <Box>
+      <Toolbar sx={{ justifyContent: "space-between", px: 3 }}>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <Typography
+            onClick={(e) => handleChange(e, 0)}
+            sx={{
+              fontWeight: 700,
+              fontSize: "1.2rem",
+              letterSpacing: "0.8px",
+              cursor: "pointer",
+              mr: 2,
+              userSelect: "none",
+              transition: "opacity 0.2s",
+              "&:hover": {
+                opacity: 0.8,
+              },
+            }}
+          >
+            Kento Watanabe
+          </Typography>
+          <LinkedInLink {...{ color: "action.active", ml: 0.5 }} />
+          <GitHubLink {...{ color: "action.active" }} />
+        </Box>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
           <Tabs
             value={props.value}
             onChange={handleChange}
-            textColor="inherit"
-            TabIndicatorProps={{
-              style: {
-                backgroundColor: "white",
-                height: "3px",
+            textColor="secondary"
+            indicatorColor="secondary"
+            sx={{
+              "& .MuiTab-root": {
+                fontWeight: 600,
+                color: "text.secondary",
+                minHeight: "64px",
+                transition: "color 0.2s",
+                "&:hover": {
+                  color: "secondary.main",
+                },
+                "&.Mui-selected": {
+                  color: "secondary.main",
+                },
               },
             }}
           >
             {pages.map((page, i) => (
               <Tab
                 key={page.title}
-                icon={<page.icon />}
+                icon={<page.icon sx={{ fontSize: "1.2rem" }} />}
                 iconPosition="start"
                 label={page.title}
                 value={i}
-                sx={{ mr: 1, color: "white" }}
+                sx={{ mr: 1 }}
               />
             ))}
           </Tabs>
-        </Box>
-        <Box>
-          {" "}
-          <LoginButton />{" "}
+          <Box sx={{ ml: 2 }}>
+            <LoginButton />
+          </Box>
         </Box>
       </Toolbar>
     </>
