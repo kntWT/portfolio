@@ -42,6 +42,7 @@ jobs:
           name: build-assets
           path: dist/
           retention-days: 1
+          include-hidden-files: true #.htaccessを含めるために必要
 
   # 2. デプロイフェーズ
   deploy:
