@@ -2,21 +2,6 @@
   "works": [],
   "products": [
     {
-      "id": 1,
-      "title": "旧ポートフォリオ",
-      "year": "2021",
-      "links": [
-        {
-          "type": "url",
-          "url": "https://kento.nkmr.io/mypage"
-        }
-      ],
-      "description": "学部2年次に作成したポートフォリオになります．学部2年生までに制作したものなどはこちらに載せていますので ，よければご覧ください．",
-      "image": "old_portfolio.png",
-      "stacks": ["PHP", "p5.js"],
-      "tags": ["B2", "2021"]
-    },
-    {
       "id": 2,
       "title": "ドライビングシミュレータ",
       "year": "2022",
@@ -67,7 +52,7 @@
       "description": "B3の研究室内ハッカソンで制作したもので，スマートフォン利用時の姿勢に着目し，姿勢が良ければ良いほどスコアが上がり，姿勢が悪いとスコアが上がらないようなゲームを開発しました．第10回学生スマートフォンアプリコンテストに応募し，優秀賞をいただきました．",
       "image": "tap_to_top.png",
       "stacks": ["Nuxt.js", "Go", "MySQL", "Docker"],
-      "tags": ["B3", "2022", "ハッカソン"]
+      "tags": ["B3", "2022", "ハッカソン", "姿勢矯正"]
     },
     {
       "id": 5,
@@ -114,7 +99,7 @@
         "Scikit Learn",
         "Docker"
       ],
-      "tags": ["B4", "2023", "研究"]
+      "tags": ["B4", "2023", "研究", "姿勢矯正"]
     },
     {
       "id": 7,
@@ -150,7 +135,7 @@
       "description": "博士前期課程1年次に開発した，姿勢データのアノテーション支援システムです．Posture Collectionで収集した正解データのノイズを除去し，正確なデータセットを作成するためのシステムです．",
       "image": "posture_annotation.png",
       "stacks": ["SvelteKit", "SpringBoot", "PostgresQL", "OpenAPI", "Docker"],
-      "tags": ["M1", "2024", "研究"]
+      "tags": ["M1", "2024", "研究", "姿勢矯正"]
     },
     {
       "id": 9,
@@ -200,7 +185,7 @@
         "TypeScript",
         "OpenAPI"
       ],
-      "tags": ["M2", "2025", "研究"]
+      "tags": ["M2", "2025", "研究", "姿勢矯正"]
     },
     {
       "id": 11,
@@ -216,7 +201,7 @@
       "description": "姿勢推定APIを利用するための申請システムです．取得した姿勢データを利用しやすくするため，利用するアプリケーションごとにAppIDを発行するためのシステムです．",
       "image": "posture_estimation_api_request.png",
       "stacks": ["NextJS", "Nginx", "Tailscale", "Docker"],
-      "tags": ["M2", "2025", "研究"]
+      "tags": ["M2", "2025", "研究", "姿勢矯正"]
     },
     {
       "id": 12,
