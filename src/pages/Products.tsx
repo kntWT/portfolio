@@ -1,25 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { productService } from '@/configs/products';
-import useArticleCards from '@/components/common/ArticleCard';
-import { Article } from '@/@types/article';
-
+import React, { useEffect, useState } from "react";
+import { productService } from "@/configs/products";
+import useArticleCards from "@/components/common/ArticleCard";
+import { Article } from "@/@types/article";
 
 const Products = () => {
-    const [products, setProducts] = useState<Article[]>([]);
-    const ArticleCards = useArticleCards(products);
+  const [products, setProducts] = useState<Article[]>([]);
+  const ArticleCards = useArticleCards(products);
 
-    useEffect(() => {
-        const loadData = async() => {
-            await productService.reload();
-            const prod = await productService.getArticles();
-            setProducts(prod);
-        }
-        loadData();
-    }, []);
+  useEffect(() => {
+    const loadData = async () => {
+      await productService.reload();
+      const prod = await productService.getArticles();
+      setProducts(prod);
+    };
+    loadData();
+  }, []);
 
-    return (
-        ArticleCards
-    );
-}
+  return ArticleCards;
+};
 
 export default Products;

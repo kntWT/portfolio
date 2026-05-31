@@ -195,7 +195,13 @@ const Home = () => {
           }}
         >
           {skills.map((skill, i) => (
-            <Tooltip title={skillNameMap[skill] ?? skill} key={i} arrow disableInteractive placement="top">
+            <Tooltip
+              title={skillNameMap[skill] ?? skill}
+              key={i}
+              arrow
+              disableInteractive
+              placement="top"
+            >
               <Box
                 sx={{
                   display: "flex",
