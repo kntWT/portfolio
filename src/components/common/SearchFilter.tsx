@@ -443,7 +443,8 @@ export const useSearchFilter = (
     if (selectedTags.length > 0 || selectedStacks.length > 0) {
       setIsExpanded(true);
     }
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedTags.length, selectedStacks.length]);
 
   const toggleTag = (tag: string, currentTags: string[]) => {
     return currentTags.includes(tag)
