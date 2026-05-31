@@ -1,4 +1,4 @@
-import { career, hobbies, profile, skills } from "@/configs/home";
+import { career, hobbies, profile, skills, skillNameMap } from "@/configs/home";
 import { SKILL_ICONS_URL } from "@/configs/url";
 import {
   Grid,
@@ -7,6 +7,7 @@ import {
   TableCell,
   TableRow,
   Typography,
+  Tooltip,
 } from "@mui/material";
 import { Box } from "@mui/system";
 
@@ -194,28 +195,29 @@ const Home = () => {
           }}
         >
           {skills.map((skill, i) => (
-            <Box
-              key={i}
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                p: 2,
-                width: { xs: 70, sm: 80 },
-                height: { xs: 70, sm: 80 },
-                borderRadius: "20px",
-                backgroundColor: "#f5f5f7",
-                border: "1px solid #eaeaea",
-                boxShadow: "0 4px 10px rgba(0, 0, 0, 0.01)",
-                "& img": {
-                  width: "80%",
-                  height: "80%",
-                  objectFit: "contain",
-                },
-              }}
-            >
-              <img src={`${SKILL_ICONS_URL}?i=${skill}`} alt={skill} />
-            </Box>
+            <Tooltip title={skillNameMap[skill] ?? skill} key={i} arrow disableInteractive placement="top">
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  p: 2,
+                  width: { xs: 70, sm: 80 },
+                  height: { xs: 70, sm: 80 },
+                  borderRadius: "20px",
+                  backgroundColor: "#f5f5f7",
+                  border: "1px solid #eaeaea",
+                  boxShadow: "0 4px 10px rgba(0, 0, 0, 0.01)",
+                  "& img": {
+                    width: "80%",
+                    height: "80%",
+                    objectFit: "contain",
+                  },
+                }}
+              >
+                <img src={`${SKILL_ICONS_URL}?i=${skill}`} alt={skill} />
+              </Box>
+            </Tooltip>
           ))}
         </Box>
       </Box>
